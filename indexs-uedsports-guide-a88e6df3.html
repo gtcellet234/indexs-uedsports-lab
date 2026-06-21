@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>ued体育 · 稳定信息入口介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            line-height: 1.6;
+            color: #1e293b;
+        }
+
+        /* 深色头图 —— 视觉焦点 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #1a2f44 100%);
+            padding: 3.5rem 1.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #eaf0f8;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            background: linear-gradient(135deg, #e6f0ff, #b6d4fe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 640px;
+            opacity: 0.9;
+            margin: 0.25rem 0 0.5rem;
+            line-height: 1.5;
+        }
+
+        .hero .meta-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.85rem;
+            color: #bdd3f0;
+            margin-top: 0.8rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* 浅色正文区域 */
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3.5rem;
+        }
+
+        /* 信息卡片式布局 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.5rem 1.8rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 20, 40, 0.08);
+        }
+
+        .card .icon {
+            font-size: 1.9rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            background: #ecf2fc;
+            border-radius: 14px;
+            padding: 0.3rem 0.6rem;
+            line-height: 1;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0f1e33;
+            margin: 0.5rem 0 0.4rem;
+        }
+
+        .card p {
+            color: #334155;
+            font-size: 0.95rem;
+        }
+
+        .card .highlight {
+            color: #1a5a9c;
+            font-weight: 500;
+        }
+
+        /* 用途卡片——强调用途卡片区域特殊底色 */
+        .card.usage-card {
+            background: #f8fcff;
+            border-left: 3px solid #2f6bb0;
+        }
+
+        /* 适合人群卡片区域 */
+        .card.audience-card {
+            background: #fcf9f5;
+            border-left: 3px solid #b48d5c;
+        }
+
+        /* 强调色 — 链接 */
+        a {
+            color: #1e6bb8;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #1e6bb8;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            border-radius: 20px;
+            margin: 2.2rem 0 2.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e9edf2;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .link-paragraph strong {
+            color: #0b1f35;
+        }
+
+        .link-paragraph a {
+            font-weight: 500;
+        }
+
+        /* FAQ摘要（简洁） */
+        .faq-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.4rem;
+            padding: 1.2rem 0 0.2rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid #dce2ec;
+        }
+
+        .faq-item {
+            flex: 1 1 200px;
+            padding: 0.8rem 1rem;
+            background: #f2f5fa;
+            border-radius: 16px;
+        }
+
+        .faq-item .q {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1a2f44;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #3a4c62;
+        }
+
+        .small-note {
+            font-size: 0.8rem;
+            color: #64748b;
+            padding: 1.2rem 0 0.5rem;
+            text-align: right;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 2rem;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero .tagline {
+                font-size: 1rem;
+                padding: 0 0.3rem;
+            }
+            .content {
+                padding: 1.8rem 1rem 2.5rem;
+            }
+            .card-grid {
+                gap: 1.2rem;
+            }
+            .link-paragraph {
+                padding: 1.3rem 1rem;
+            }
+            .faq-item {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 4.5rem 2rem 3.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图区域（主视觉） -->
+    <header class="hero">
+        <h1>ued体育 · 信息入口</h1>
+        <p class="tagline">
+            从稳定的视角，了解一个体育内容聚合的起点，页面说明与用途指南
+        </p>
+        <span class="meta-badge">内容索引 · 轻介绍</span>
+    </header>
+
+    <main class="content">
+        <!-- 用途卡片 + 适合人群 卡片式混合展示 -->
+        <div class="card-grid">
+            <!-- 用途卡片 1: 主用途 -->
+            <div class="card usage-card">
+                <div class="icon">📋</div>
+                <h3>便捷内容索引</h3>
+                <p>
+                    作为体育资讯与话题的汇集入口，<span class="highlight">ued体育</span> 帮助用户快速定位感兴趣的项目、赛事动态与讨论方向。页面保持简洁，降低浏览负担。
+                </p>
+            </div>
+
+            <!-- 用途卡片 2: 辅助用途 -->
+            <div class="card usage-card">
+                <div class="icon">🔗</div>
+                <h3>稳定浏览起点</h3>
+                <p>
+                    无论是了解联赛概况、关注运动社区，还是查找基础规则，这个页面都提供一个轻量的导航起点。条目清晰，不冗余。
+                </p>
+            </div>
+
+            <!-- 适合人群卡片 -->
+            <div class="card audience-card">
+                <div class="icon">🏃</div>
+                <h3>运动爱好者</h3>
+                <p>
+                    适合日常有运动习惯、喜欢关注体育消息的朋友，也适合刚接触某项运动、希望获得一个靠谱参考的新人。内容不设门槛。
+                </p>
+            </div>
+
+            <div class="card audience-card">
+                <div class="icon">🧭</div>
+                <h3>内容探索者</h3>
+                <p>
+                    如果你是体育话题的观察者、偶尔查阅赛事日程或背景信息，这里可以作为一个安静的出发点，不受强推送干扰。
+                </p>
+            </div>
+        </div>
+
+        <!-- 自然链接段落 — 将链接嵌入句子，无硬广口吻 -->
+        <div class="link-paragraph">
+            <strong>关于这个介绍页</strong>
+            <p style="margin-top: 0.6rem;">
+                这里是一份对 <a href="https://indexs-uedsports.com">ued体育</a> 的简单说明。页面不承载实时数据，而是作为一个轻量的信息卡片站，把主要用途、适合人群以及常见疑问的线索整理在一起。如果你希望直接访问相关站点，可以从上面这个链接出发。它指向一个内容范围与体育相关的页面，你可以根据自身需要了解其中信息。
+            </p>
+            <p style="margin-top: 1rem;">
+                我们更倾向于把入口定义成一个平和的路径，而不是强引导。无论你是想简单看看体育新闻，还是检索某项目的基本背景，这个页面都能给你一个相对干净的上下文。链接文本即站点名称，一如既往。
+            </p>
+        </div>
+
+        <!-- 额外补充一段平实说明，增加丰富度且避免重复模块 -->
+        <div style="background: #f3f7fe; border-radius: 18px; padding: 1.5rem 1.8rem; margin: 1.8rem 0 2rem;">
+            <h3 style="font-weight: 500; font-size: 1.1rem; color: #152a44; margin-bottom: 0.45rem;">📎 页面定位</h3>
+            <p style="color: #1f344b;">
+                本页不提供实时比分或运动员数据，它扮演的更像是一个<strong>信息指引卡片</strong>：告诉你这个站点主要涉及哪些内容，适合哪些人，以及如何找到它。你可以把它看作一份安静的使用前说明。
+            </p>
+        </div>
+
+        <!-- FAQ摘要 — 只用1~2个简短问答，不占据太多篇幅 -->
+        <div class="faq-summary">
+            <div class="faq-item">
+                <span class="q">❓ 为什么叫 ued体育 ？</span>
+                <span class="a">它是该内容聚合的标识名称，具体范畴可从页面内容中了解。</span>
+            </div>
+            <div class="faq-item">
+                <span class="q">📌 页面多久更新一次？</span>
+                <span class="a">本介绍页为静态说明，不频繁更改；底层站点内容独立更新。</span>
+            </div>
+        </div>
+
+        <!-- 底部的安静提示 -->
+        <div class="small-note">
+            · 信息卡片式简介 · 无诱导表述 · 稳定入口说明
+        </div>
+    </main>
+
+</body>
+</html>
