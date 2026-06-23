@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 · 探索赛事背后的乐趣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1c2c3a;
+            background-color: #f5f9fc;
+            padding: 0 1rem;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 0.5rem;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #cbdbe7;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0d4f5f;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2a4a5a;
+            font-weight: 450;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #00897b;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            padding: 3rem 0 2rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #0f3b44;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #2f5f6d;
+            max-width: 600px;
+            margin: 0 auto 1.2rem;
+        }
+
+        .hero .intro-text {
+            font-size: 1rem;
+            color: #2f4a57;
+            max-width: 650px;
+            margin: 0 auto;
+            background: #e6f0f5;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            border-left: 4px solid #00897b;
+        }
+
+        /* 网格卡片 (三个场景模块) */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem 0;
+        }
+
+        .scene-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.6rem 1.2rem 1.8rem;
+            box-shadow: 0 4px 14px rgba(0, 80, 80, 0.05), 0 1px 4px rgba(0, 40, 50, 0.06);
+            transition: transform 0.2s, box-shadow 0.25s;
+            border: 1px solid #d9e6ed;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 110, 100, 0.08);
+            border-color: #aac8d4;
+        }
+
+        .scene-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0d4f5f;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #2c4a58;
+            margin-bottom: 1rem;
+        }
+
+        .scene-card .card-tag {
+            display: inline-block;
+            background: #ddeff0;
+            color: #00695c;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-section {
+            background: #e7f1f7;
+            border-radius: 28px;
+            padding: 2rem 1.8rem;
+            margin: 2.2rem 0 2.8rem;
+            border: 1px solid #c2dae6;
+        }
+
+        .faq-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0b4350;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #003d4a;
+            margin-bottom: 0.15rem;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            color: #2a4d5a;
+            font-size: 0.95rem;
+            padding-left: 0.2rem;
+            border-left: 3px solid #00897b;
+            padding-left: 0.75rem;
+        }
+
+        .faq-a a {
+            color: #00695c;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .faq-a a:hover {
+            color: #004d40;
+        }
+
+        /* 额外提示 / 信息块 */
+        .info-note {
+            background: white;
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.8rem 0 2rem;
+            border: 1px solid #cde0e9;
+            font-size: 0.95rem;
+            color: #1a3a47;
+            box-shadow: 0 2px 6px rgba(0,70,70,0.04);
+        }
+
+        .info-note strong {
+            color: #00695c;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 1.8rem 0 2.2rem;
+            font-size: 0.85rem;
+            color: #426a7a;
+            border-top: 1px solid #c9dbe5;
+            margin-top: 0.5rem;
+        }
+
+        .footer a {
+            color: #00695c;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 780px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .scene-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .faq-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero .intro-text {
+                padding: 0.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- 导航 -->
+    <nav class="navbar">
+        <span class="logo">⚡ 竞彩视角</span>
+        <ul class="nav-links">
+            <li><a href="#">赛事</a></li>
+            <li><a href="#">数据</a></li>
+            <li><a href="#">社区</a></li>
+            <li><a href="#">帮助</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero 与介绍 -->
+    <section class="hero">
+        <h1>不止是赛果，更是思考方式</h1>
+        <p class="tagline">用轻松的视角，理解比赛背后的逻辑与趣味。</p>
+        <div class="intro-text">
+            <p>很多人聊起比赛，总爱先看比分。其实每场对决都藏着策略、节奏和临场反应。
+            我们试着从日常话题出发，聊聊那些让比赛变得有意思的细节。如果你想找一个安静、清晰的信息起点，
+            <a href="https://zhportal-sporttery.com" style="color:#00695c;text-decoration:underline;font-weight:500;">竞彩网</a>
+            提供了一种简洁的方式，让你随时了解不同赛事的动态。</p>
+        </div>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>🔍 赛前闲聊</h3>
+            <p>和朋友聊球时，总想多知道一点：最近状态如何？交锋记录怎样？
+            这些碎片信息凑在一起，往往比单纯的猜测更有趣。</p>
+            <span class="card-tag">信息拼图</span>
+        </div>
+        <div class="scene-card">
+            <h3>📊 数据小乐趣</h3>
+            <p>控球率、射门次数、防守失误……数字不会说谎，但它们需要被解读。
+            哪怕只是瞥一眼统计，也能发现比赛的另一面。</p>
+            <span class="card-tag">冷静观察</span>
+        </div>
+        <div class="scene-card">
+            <h3>🧩 赛季随想</h3>
+            <p>每个赛季都有转折点和意外。从一场冷门到一波连胜，故事往往藏在细节中。
+            保持关注，慢慢就能看出门道。</p>
+            <span class="card-tag">长期视角</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <section class="faq-section">
+        <h2>一些你可能会好奇的</h2>
+        <div class="faq-item">
+            <span class="faq-q">这个网站提供实时比分吗？</span>
+            <span class="faq-a">主要聚焦赛事信息与数据参考。如果你需要简洁的赛程和结果，可以看看
+            <a href="https://zhportal-sporttery.com">竞彩网</a> 上的内容，更新比较规律。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">信息更新速度怎么样？</span>
+            <span class="faq-a">通常会在关键节点保持同步，比如赛前预览、赛后统计。日常浏览足够用。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">适合新手吗？</span>
+            <span class="faq-a">当然。页面设计偏轻量，没有冗余干扰。哪怕你只是偶尔想了解某场比赛，
+            也能快速找到需要的部分。</span>
+        </div>
+    </section>
+
+    <!-- 提示块 -->
+    <div class="info-note">
+        <strong>小提示：</strong> 试着从不同角度观察比赛——比如关注某支球队近五场的表现趋势，
+        或者留意半场与全场的变化。这些维度会让观看体验更立体。
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>基于兴趣与信息梳理 · 更多内容可至 <a href="https://zhportal-sporttery.com">竞彩网</a> 探索</p>
+        <p style="margin-top:0.4rem; color:#3a5f6d;">保持好奇，理性讨论</p>
+    </footer>
+</div>
+</body>
+</html>
